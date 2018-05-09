@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:AndroidStretchingTests"
+            xmlns:skiaForms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+            xmlns:localAndroid="clr-namespace:AndroidStretchingTests;targetPlatform=Android"
+            xmlns:formsAndroid="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android"
+            xmlns:skiaAndroid="clr-namespace:SkiaSharp.Views.Android;assembly=SkiaSharp.Views.Android;targetPlatform=Android"
+            x:Class="AndroidStretchingTests.MainPage">
+
+    <ContentPage Title="Forms">
+        <skiaForms:SKCanvasView PaintSurface="OnPaintSkiaSharpFormsSurface" />
+    </ContentPage>
+
+    <ContentPage Title="Platform">
+        <skiaAndroid:SKCanvasView PaintSurface="OnPaintSkiaSharpAndroidSurface" x:Arguments="{x:Static formsAndroid:Forms.Context}" />
+    </ContentPage>
+
+    <ContentPage Title="Native">
+        <localAndroid:CustomView PaintSurface="OnPaintNativeAndroidSurface" x:Arguments="{x:Static formsAndroid:Forms.Context}" />
+    </ContentPage>
+
+</TabbedPage>
